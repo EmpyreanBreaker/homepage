@@ -4,37 +4,37 @@ const projectList = [
   {
     title: "Project 1",
     description: "Short description of Project 1. Just a couple sentences will do.",
-    imageUrl: "",
+    imageUrl: "images/main/pexels-andersonportella-9396155.jpg",
     githubLink: "#",
   },
   {
     title: "Project 2",
     description: "Short description of Project 2. Just a couple sentences will do.",
-    imageUrl: "",
+    imageUrl: "images/main/pexels-arjunadinata-30700873.jpg",
     githubLink: "#",
   },
   {
     title: "Project 3",
     description: "Short description of Project 3. Just a couple sentences will do.",
-    imageUrl: "",
+    imageUrl: "images/main/pexels-faizanmeer-31205651.jpg",
     githubLink: "#",
   },
   {
     title: "Project 4",
     description: "Short description of Project 4. Just a couple sentences will do.",
-    imageUrl: "",
+    imageUrl: "images/main/pexels-fucacima-12244555.jpg",
     githubLink: "#",
   },
   {
     title: "Project 5",
     description: "Short description of Project 5. Just a couple sentences will do.",
-    imageUrl: "",
+    imageUrl: "images/main/pexels-musa-emin-ozdemir-1015372176-23626340.jpg",
     githubLink: "#",
   },
   {
     title: "Project 6",
     description: "Short description of Project 6. Just a couple sentences will do.",
-    imageUrl: "",
+    imageUrl: "images/main/pexels-simon-phillips-1402891771-26596530.jpg",
     githubLink: "#",
   },
 ];
@@ -54,11 +54,6 @@ const createCards = (() => {
     image.src = project.imageUrl;
     imageContainer.appendChild(image);
 
-    const placeholder = document.createElement("p");
-    placeholder.classList.add("main__project-image-placeholder");
-    placeholder.textContent = `screenshot of project  ${count}`;
-    imageContainer.appendChild(placeholder);
-
     const projectDetailsContainer = document.createElement("div");
     projectDetailsContainer.classList.add("main__project-details-container");
 
@@ -66,17 +61,31 @@ const createCards = (() => {
     title.classList.add("main__project-title");
     title.textContent = project.title;
 
-    const links = document.createElement("a");
-    links.classList.add("main__project-link");
-    links.href = project.githubLink;
-    links.target = "_blank";
+    const linkContainer = document.createElement("div");
+    linkContainer.classList.add("project__links");
 
-    const linkIcon = document.createElement("img");
-    linkIcon.classList.add("main__project-link-icon");
-    linkIcon.src = "github-icon.png"; // Replace with actual GitHub icon path
-    links.appendChild(linkIcon);
+    const githubLink = document.createElement("a");
+    githubLink.classList.add("project__link");
+    githubLink.href = project.githubLink;
 
-    projectDetailsContainer.append(title, links);
+    const githubIcon = document.createElement("img");
+    githubIcon.classList.add("project__link-icon");
+    githubIcon.src = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"; // Replace with actual GitHub icon path
+    githubLink.appendChild(githubIcon);
+
+    const externalLink = document.createElement("a");
+    externalLink.classList.add("project__link");
+    externalLink.href = project.githubLink; // Replace with actual external link if available
+    externalLink.target = "_blank";
+    externalLink.rel = "noopener noreferrer";
+
+    const externalIcon = document.createElement("img");
+    externalIcon.classList.add("project__link-icon");
+    externalIcon.src = "/images/open-in-new.svg"; // Replace with actual external link icon path
+    externalLink.appendChild(externalIcon);
+
+    linkContainer.append(githubLink, externalLink);
+    projectDetailsContainer.append(title, linkContainer);
 
     const description = document.createElement("p");
     description.classList.add("main__project-description");
