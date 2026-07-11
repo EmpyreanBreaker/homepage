@@ -91,7 +91,7 @@ const createCards = (() => {
 
     const externalIcon = document.createElement("img");
     externalIcon.classList.add("project__link-icon");
-    externalIcon.src = "/images/open-in-new.svg"; // Replace with actual external link icon path
+    externalIcon.src = "images/open-in-new.svg";
     externalIcon.alt = "";
     externalLink.appendChild(externalIcon);
 
