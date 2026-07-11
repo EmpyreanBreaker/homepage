@@ -300,13 +300,12 @@ body {
   object-fit: contain;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1024px) {
   .footer {
     padding-inline: 1rem;
   }
 
   .footer__whole-content {
-    flex-direction: column;
     align-items: center;
   }
 
@@ -314,14 +313,12 @@ body {
     flex: none;
     align-items: center;
     width: 100%;
-    max-width: 22rem;
     text-align: center;
   }
 
   .footer__portrait {
     flex: none;
     width: 100%;
-    max-width: 22rem;
   }
 
   .footer__links {
@@ -333,22 +330,7 @@ body {
   .header__portrait-image,
   .footer__portrait-image {
     width: 100%;
-    max-width: 22rem;
     height: auto;
     border-radius: 1rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .header__portrait-image,
-  .footer__portrait-image {
-    max-width: 18rem;
-    height: auto;
-    border-radius: 1rem;
-  }
-
-  .footer__content,
-  .footer__portrait {
-    max-width: 18rem;
   }
 }
